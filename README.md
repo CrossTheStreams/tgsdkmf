@@ -1,7 +1,7 @@
 Rails 3.2 Boilerplate
 =============
 
-Uses PostgreSQL, Twitterbootstrap, and HAML
+Uses PostgreSQL, Twitter Bootstrap 3, and HAML
 
 Rename application with [Rename tool](https://github.com/get/rename).
 
