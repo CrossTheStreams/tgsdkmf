@@ -33,7 +33,7 @@ ui_helpers = {
         'margin-top':0   
       },500) 
     });
-  }
+  },
   ensure_link : function(link){
     return('http://'+link.replace('http://',''))
   }
