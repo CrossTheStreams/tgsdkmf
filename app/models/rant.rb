@@ -7,8 +7,8 @@ class Rant < ActiveRecord::Base
 
   def ensure_rant
     ret = ''
-    if self.rant.length > 85
-      ret = self.rant[0..81] + ' ...'
+    if self.rant.length > 75
+      ret = self.rant[0..71] + ' ...'
     else
       ret = self.rant 
     end
