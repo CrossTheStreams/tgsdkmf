@@ -5,6 +5,8 @@
       %h3 ... #{rant.ensure_rant}
       - if !rant.link.blank?
         = link_to 'Link', rant.ensure_link, {:target => '_blank',:class => 'rant-link'}
+      - else 
+        %a.rant-link.hide{:href => '', :target => '_blank'} Link
 .modal.fade#submit-modal{:tabindex => "-1", :role => "dialog", 'aria-labelledby'=>"myModalLabel", 'aria-hidden'=>"true"}
   .modal-dialog
     .modal-content

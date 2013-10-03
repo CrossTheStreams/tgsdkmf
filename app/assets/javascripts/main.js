@@ -24,7 +24,13 @@ ui_helpers = {
     var r = $('.rant').first().clone(),
     rant_list = $('#rant-list')
     r.find('h3').text('... '+string)
-    r.find('.rant-link').attr('href',ui_helpers.ensure_link(link))
+    if (link == '') {
+      r.find('.rant-link').addClass('hide')
+    }
+    else {
+      r.find('.rant-link').removeClass('hide')
+      r.find('.rant-link').attr('href',ui_helpers.ensure_link(link)) 
+    }
     r.css('display;none') 
     rant_list.prepend(r)
     r.css('margin-top',-r.height())
@@ -48,7 +54,7 @@ user_actions = {
     $.ajax({
       url: '/rant/create',
       type: 'POST',
-      data: {rant: $('#rant-input').val(),link:$('#link-input').val()}
+      data: {rant: $('#rant-input').val(),link:$('#link-input_').val()}
     }) 
   }
 }
