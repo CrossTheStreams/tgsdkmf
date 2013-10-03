@@ -23,7 +23,7 @@ ui_helpers = {
   new_rant : function(string,link) {
     var r = $('.rant').first().clone(),
     rant_list = $('#rant-list')
-    r.find('h3').text(string)
+    r.find('h3').text('... '+string)
     r.find('.rant-link').attr('href',ui_helpers.ensure_link(link))
     r.css('display;none') 
     rant_list.prepend(r)
@@ -33,7 +33,7 @@ ui_helpers = {
         'margin-top':0   
       },500) 
     });
-  },
+  }
   ensure_link : function(link){
     return('http://'+link.replace('http://',''))
   }
