@@ -1,6 +1,8 @@
-RailsBoilerplate::Application.routes.draw do
+TheGovShutDownKeptMeFrom::Application.routes.draw do
 
   root :to => "main#index"
+
+  post '/rant/create' => 'rant#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

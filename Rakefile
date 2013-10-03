@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-RailsBoilerplate::Application.load_tasks
+TheGovShutDownKeptMeFrom::Application.load_tasks

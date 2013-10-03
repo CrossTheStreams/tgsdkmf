@@ -11,4 +11,60 @@
  *= require_self
  *= require_tree .
  */
+.red-button {
+  background-color: #EE4848 !important;
+  border-color: #EE4848 !important; 
+}
 
+#main-nav-bar {
+  height:130px;
+}
+
+#title-link {
+  min-width: 100%;
+  line-height: 1.3;
+  font-size: 2em;
+  font-weight:bold;
+  color: #DB2525;
+  left: 20px;
+}
+
+#title-link:hover {
+  color:#EE4848;
+}
+
+
+#rant-list {
+  margin-top:20px;
+  .rant {
+    padding-bottom: 30px;
+    font-size: 1em;
+    border-bottom: 1px solid black;
+    min-height: 120px;
+  }
+  h3 {
+    float:left;
+  }
+  a.rant-link{
+    position: absolute;
+    left: 86%;
+    padding-top: 20px;
+  }
+  margin-left:20px;
+  margin-right:20px;
+}
+
+#submit-modal {
+  .modal-title {
+    text-align: center; 
+  }
+  margin-top:20px;
+  .modal-titel {
+    font-size: 1.5em;
+  }
+
+}
+
+textarea {
+  resize:none;
+}

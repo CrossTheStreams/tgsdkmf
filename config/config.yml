@@ -1,0 +1,7 @@
+development: 
+  domain: 'http://localhost:3000'
+staging:
+  domain:
+production:
+  domain:  'http://tgsdkmf.com'
+  
