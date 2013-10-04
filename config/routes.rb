@@ -2,7 +2,11 @@ TheGovShutDownKeptMeFrom::Application.routes.draw do
 
   root :to => "main#index"
 
-  post '/rant/create' => 'rant#create'
+  post '/rants/create' => 'rants#create'
+ 
+  match '/post/(:radix)' => 'rants#show'
+
+  get '/rants/scroll/:radix' => 'rants#scroll'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

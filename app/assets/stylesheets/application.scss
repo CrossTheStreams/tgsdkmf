@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+body {
+  font-size:15px;
+}
 .red-button {
   background-color: #EE4848 !important;
   border-color: #EE4848 !important; 
@@ -40,15 +43,25 @@
     padding-bottom: 30px;
     font-size: 1em;
     border-bottom: 1px solid black;
-    min-height: 120px;
+    a {
+      color: #333;
+    }
+    a:hover {
+      color: #DB2525;  
+    }
   }
   h3 {
-    float:left;
   }
   a.rant-link{
-    position: absolute;
-    left: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+  }
+  .rant-description {
     padding-top: 20px;
+    font-size: 1.8em;
+    padding-bottom: 50px; 
   }
   margin-left:20px;
   margin-right:20px;
@@ -67,4 +80,12 @@
 
 textarea {
   resize:none;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  height: 20px;
+  width: 100%;
+  background-color: #333;
 }

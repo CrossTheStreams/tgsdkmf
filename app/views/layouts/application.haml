@@ -7,6 +7,9 @@
   = javascript_include_tag "application"
   = csrf_meta_tags
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  %meta{:property => "og:title", :content => "The Government Shutdown Kept Me From ..."}
+  %meta{:property => "og:type", :content => "website"}
+  %meta{:property => "og:image", :content => CFG['domain']+'/red-box.jpg'}
   = yield :head
 %body
   #fb-root
@@ -14,7 +17,8 @@
     .navbar-inner{:style => "height:40px;"}
       .container{:style => "height:40px;"}
         %a.navbar-brand#title-link{:href => CFG['domain']}
-          The Government Shutdown Kept Me From ... 
+          The Government Shutdown Kept Me From 
+          %span#ellipsis ... 
         -#.nav-collapse.collapse{:style => 'float:right;'}
           -#%ul.nav.navbar-nav
             -#%li 
@@ -22,3 +26,9 @@
                 -#Made by some guy.
   .container{:style => "margin-top:120px;"}
     = yield 
+  .footer
+    %a{:href => "https://twitter.com/share", 'data-via' =>"hautaulogy", 'data-hashtags' => "tgsdkmf"}Share on Twitter
+    :javascript
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    %a{:style => 'float:right;', :href => "#", :onclick => "window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog', 'width=626,height=436'); return false;"}
+      Share on Facebook

@@ -1,0 +1,11 @@
+- scroll_action = params[:action] == 'scroll'
+- for rant in @rants
+  - Rails.logger.info("+++\n#{rant.id}\n+++")
+  .rant{'data-radix' => rant.radix, :style => scroll_action ? 'opacity:0;' : '', 'data-hidden' => scroll_action.to_s}
+    %a{:href => CFG['domain']+'/post/'+rant.radix}
+      %h3 ... #{rant.ensure_rant}
+    - if !rant.link.blank?
+      = link_to 'Link', rant.ensure_link, {:target => '_blank',:class => 'rant-link'}
+    - else 
+      %a.rant-link.hide{:href => '', :target => '_blank'} Link
+

@@ -1,12 +1,6 @@
 #rant-list
-  - @rants = Rant.order('id DESC').limit(10) 
-  - for rant in @rants
-    .rant
-      %h3 ... #{rant.ensure_rant}
-      - if !rant.link.blank?
-        = link_to 'Link', rant.ensure_link, {:target => '_blank',:class => 'rant-link'}
-      - else 
-        %a.rant-link.hide{:href => '', :target => '_blank'} Link
+  - @rants = Rant.select([:id,:rant,:radix,:link]).order('id DESC').limit(10) 
+  = render :template => '/rants/scroll'
 .modal.fade#submit-modal{:tabindex => "-1", :role => "dialog", 'aria-labelledby'=>"myModalLabel", 'aria-hidden'=>"true"}
   .modal-dialog
     .modal-content
@@ -16,9 +10,11 @@
           The Government Shutdown Kept Me From...
       .modal-body
         %form
-          = text_area_tag 'rant-input', nil, {:placeholder => "... ", :class => 'form-control'}
+          = text_area_tag 'rant-input', nil, {:placeholder => "... a short blurb", :class => 'form-control', :style => 'height: 40px;'}
           %br
-          = text_field 'link-input', nil, {:placeholder => "(Optional) Link to this story" , :class => 'form-control'}
+          = text_area_tag 'description-input', nil, {:placeholder => "... the whole story", :class => 'form-control', :style => 'height:100px'}
+          %br
+          = text_field 'link-input', nil, {:placeholder => "Link to this story (Optional)" , :class => 'form-control'}
       .modal-footer
         %button#close-submit.btn.btn-default{:type=>"button"}
           Close
@@ -27,3 +23,15 @@
 -#%a.red-button{'data-toggle' => "modal", :href => "#myModal", :class => "btn btn-primary btn-lg"} Share a story
 :javascript
   request_path = "#{CFG['domain']}"
+
+  // http://stackoverflow.com/questions/3701311/jquery-event-when-user-stops-scrolling
+  var timer;
+  $(window).bind('scroll',function () {
+    clearTimeout(timer);
+    timer = setTimeout( refresh , 150 );
+  });
+  var refresh = function () { 
+    // if we stop scrolling and we're near the bottom, add content
+    user_actions.bottom_scroll_check()
+  };
+
