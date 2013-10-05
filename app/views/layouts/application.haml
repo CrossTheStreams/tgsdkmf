@@ -12,6 +12,8 @@
   %meta{:property => "og:image", :content => CFG['domain']+'/red-box.jpg'}
   = yield :head
 %body
+  -if Rails.env == 'production'
+    = render :partial => '/shared/google_analytics'
   #fb-root
   .navbar.navbar-inverse.navbar-fixed-top#main-nav-bar
     .navbar-inner{:style => "height:40px;"}
