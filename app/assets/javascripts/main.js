@@ -6,6 +6,10 @@ $(document).ready(function() {
  },100)
 
  $('#close-submit').on('click',function() {
+   setTimeout(function(){
+     animations_active = false;
+     ui_helpers.animate_ellipsis()
+   },1500);
    $('#submit-modal').modal('hide')   
  });
 
@@ -17,6 +21,8 @@ $(document).ready(function() {
   $('#link-input_').on('focus',function(){
     console.log('stuff')
   })
+
+  ui_helpers.animate_ellipsis();
 
 });
 
