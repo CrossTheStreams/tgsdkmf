@@ -1,5 +1,5 @@
 #rant-list
-  - @rants = Rant.select([:id,:rant,:radix,:link]).order('id DESC').limit(10) 
+  - @rants = Rant.select([:id,:rant,:radix,:link]).order('id DESC').limit(15) 
   = render :template => '/rants/scroll'
 .modal.fade#submit-modal{:tabindex => "-1", :role => "dialog", 'aria-labelledby'=>"myModalLabel", 'aria-hidden'=>"true"}
   .modal-dialog
