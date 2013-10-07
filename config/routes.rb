@@ -2,6 +2,8 @@ TheGovShutDownKeptMeFrom::Application.routes.draw do
 
   root :to => "main#index"
 
+  match '/index.html' => 'main#index'
+
   post '/rants/create' => 'rants#create'
  
   match '/post/(:radix)' => 'rants#show'
