@@ -1,4 +1,16 @@
 animations_active = false;
+
+// Thanks Internet!
+// http://stackoverflow.com/questions/3614944/how-to-get-random-element-in-jquery
+jQuery.fn.random = function() {
+  var randomIndex = Math.floor(Math.random() * this.length);  
+  return jQuery(this[randomIndex]);
+};
+
+function rando_seconds() {
+  return(Math.max(2000, (Math.random() * 9000)) )
+}
+
 $(document).ready(function() {
 
  setTimeout(function() {
@@ -8,7 +20,7 @@ $(document).ready(function() {
  $('#close-submit').on('click',function() {
    setTimeout(function(){
      animations_active = false;
-     ui_helpers.animate_ellipsis()
+     ui_helpers.animate_ellipsis($('.title-ellipsis'))
    },1500);
    $('#submit-modal').modal('hide')   
  });
@@ -22,7 +34,12 @@ $(document).ready(function() {
     console.log('stuff')
   })
 
-  ui_helpers.animate_ellipsis();
+  ui_helpers.animate_ellipsis($('.title-ellipsis'))
+
+  setInterval(function() {
+    var random_ellipsis = $('.ellipsis:in-viewport').random();
+    ui_helpers.animate_ellipsis(random_ellipsis);
+  },rando_seconds())
 
 });
 
@@ -50,18 +67,18 @@ ui_helpers = {
       },500) 
     });
   },
-  animate_ellipsis: function() { 
+  animate_ellipsis: function(ellipsis) { 
     if (!animations_active) {
       var arr = ["",".","..","..."]
       for (var i = 0; i < arr.length; i += 1) {
         var str = arr[i]
-        ui_helpers.ellipsis_text(str,i)
+        ui_helpers.ellipsis_text(ellipsis,str,i)
       } 
     }
   },
-  ellipsis_text: function(str,n) {
+  ellipsis_text: function(ellipsis,str,n) {
     setTimeout(function() {   
-      $('#ellipsis').text(str)
+      $(ellipsis).text(str)
     },700*n) 
   },
   scroll_rant_visible: function() {
