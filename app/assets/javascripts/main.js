@@ -1,5 +1,5 @@
 animations_active = false;
-
+rando = 3000;
 // Thanks Internet!
 // http://stackoverflow.com/questions/3614944/how-to-get-random-element-in-jquery
 jQuery.fn.random = function() {
@@ -8,7 +8,8 @@ jQuery.fn.random = function() {
 };
 
 function rando_seconds() {
-  return(Math.max(2000, (Math.random() * 9000)) )
+  rando = Math.max(2000, (Math.random() * 9000))
+  return(rando)
 }
 
 $(document).ready(function() {
@@ -38,8 +39,9 @@ $(document).ready(function() {
 
   setInterval(function() {
     var random_ellipsis = $('.ellipsis:in-viewport').random();
+    rando_seconds()
     ui_helpers.animate_ellipsis(random_ellipsis);
-  },rando_seconds())
+  },rando)
 
 });
 
