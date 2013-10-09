@@ -10,7 +10,7 @@ class RantsController < ApplicationController
     last_rant = Rant.find_by_radix(params[:radix])
     if last_rant
       idx = last_rant.id - 1
-      @rants = Rant.where(:id => (idx-9)..idx).order('id DESC')
+      @rants = Rant.where(:id => (idx-19)..idx).order('id DESC')
     end
     render layout: false
   end
