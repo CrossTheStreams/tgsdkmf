@@ -25,7 +25,9 @@ a {
 a:hover {
  color : #EE4848 !important;
 }
-
+.twitter-share-button {
+ float:right !important;
+}
 .red-button {
   background-color: #EE4848 !important;
   border-color: #EE4848 !important; 
@@ -36,18 +38,19 @@ a:hover {
 }
 
 #title-link {
-  min-width: 100%;
+  width: 100%;
   line-height: 1.3;
   font-size: 1.8em;
-  font-weight:bold;
+  font-weight: bold;
   color: #DB2525;
-  padding:0px;
+  padding: 0px;
+  position: absolute;
+  border: 0px;
 }
 
 #title-link:hover {
   color:#EE4848;
   max-height: 131px;
-  overflow: hidden;
 }
 
 .title-ellipsis {

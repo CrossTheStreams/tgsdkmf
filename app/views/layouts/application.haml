@@ -16,10 +16,16 @@
   #fb-root
   .navbar.navbar-collapse.navbar-inverse.navbar-fixed-top#main-nav-bar{:role => 'navigation;'}
     .navbar-inner{:style => "height:40px;"}
-      .container{:style => "height:40px;"}
-        %a.navbar-toggle.navbar-brand#title-link{:href => CFG['domain']}
+      .container{:style => "height:40px;max-width: 660px;"}
+        %a.navbar-toggle.navbar-brand#title-link{:href => CFG['domain'],:style => 'left: -50px;'}
           TGSDKMF
           %span.title-ellipsis ... 
+        %a{:href => "https://twitter.com/share", 'data-via' =>"hautaulogy", 'data-hashtags' => "tgsdkmf", :alt => 'Share on Twitter',:style => 'float:right;'}
+          %img{:src => 'http://tgsdkmf.s3.amazonaws.com/twitter-64-white.png'}
+        :javascript
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        %a{:style => 'float:right;', :href => "#", :onclick => "window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog', 'width=626,height=436'); return false;",:alt => 'Share on Facebook'}
+          %img{:src => 'http://tgsdkmf.s3.amazonaws.com/facebook-64-white.png'}
         .nav-collapse.collapse
           %a.navbar-brand#title-link{:href => CFG['domain']}
             The Government Shutdown Kept Me From 
@@ -32,10 +38,4 @@
   .container{:style => "margin-top:60px;"}
     = yield 
   .footer
-    %a{:href => "https://twitter.com/share", 'data-via' =>"hautaulogy", 'data-hashtags' => "tgsdkmf", :alt => 'Share on Twitter',:style => 'float:left;'}
-      %img{:src => 'http://tgsdkmf.s3.amazonaws.com/twitter-64-white.png'}
-    :javascript
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
     %a#some-guy-link{:href => 'http://hautaulogy.com', :target => '_blank'} Made by some guy.
-    %a{:style => 'float:right;', :href => "#", :onclick => "window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog', 'width=626,height=436'); return false;",:alt => 'Share on Facebook'}
-      %img{:src => 'http://tgsdkmf.s3.amazonaws.com/facebook-64-white.png'}
