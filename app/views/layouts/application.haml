@@ -8,7 +8,8 @@
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   %meta{:property => "og:title", :content => "The Government Shutdown Kept Me From ..."}
   %meta{:property => "og:type", :content => "website"}
-  %meta{:property => "og:image", :content => CFG['domain']+'/red-box.jpg'}
+  %meta{:property => "og:image", :content => 'http://tgsdkmf.s3.amazonaws.com/red-box.jpg'}
+  %link{:rel => "image_src", :href => "http://tgsdkmf.s3.amazonaws.com/red-box.jpg"}
   = yield :head
   - if Rails.env == 'production'
     = render :partial => '/shared/google_analytics' 
