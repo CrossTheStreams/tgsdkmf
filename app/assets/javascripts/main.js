@@ -143,7 +143,7 @@ user_actions = {
           }
           setTimeout(function(){
             animations_active = false; 
-          },3000)
+          },1500)
         }
       }) 
     }  
