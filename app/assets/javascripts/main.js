@@ -92,13 +92,13 @@ ui_helpers = {
     return('http://'+link.replace('http://',''))
   },
   fade_in_rant: function(fade_in_rant,n) {
+    $('#rant-list').append(fade_in_rant)
+    fade_in_rant.attr('data-hidden','false') 
     setTimeout(function() {
-      $('#rant-list').append(fade_in_rant)
-      fade_in_rant.attr('data-hidden','false') 
       fade_in_rant.animate({
         'opacity' : '1'
       },500)   
-    },500*n)  
+    },150*n)  
   }
 }
 
@@ -107,7 +107,6 @@ user_actions = {
     var rant_text = $('#rant-input').val(),
       link_text = $('#link-input_').val();
       d_text = $('#description-input').val()
-
     $.ajax({
       url: '/rants/create',
       type: 'POST',
@@ -130,14 +129,21 @@ user_actions = {
           animations_active = true;
         },
         success: function(data) {
-          var hidden_rants = $(jQuery.parseHTML(data)).filter('.rant[data-hidden=true]')
-          for (var i = 0; i < hidden_rants.length; i += 1) {
-            var fade_in = $(hidden_rants[i])
-            ui_helpers.fade_in_rant(fade_in,i)
+          var hidden_rants = $(jQuery.parseHTML(data)).filter('.rant[data-hidden=true]'),
+              // radixes are unique, so leverage them to prevent duplicates
+              // strange that there are duplicates though, need to figure that out...
+              radix_array = [];
+          for (var i = 0; i < hidden_rants.length; i ++) {
+            var fade_in = $(hidden_rants[i]),
+                rant_radix = fade_in.attr('data-radix')
+            if (radix_array.indexOf(rant_radix) == -1) {
+              radix_array.concat(rant_radix)
+              ui_helpers.fade_in_rant(fade_in,i) 
+            }
           }
           setTimeout(function(){
             animations_active = false; 
-          },5000)
+          },3000)
         }
       }) 
     }  
